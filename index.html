@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simulador financiero del método de Gradientes Conjugados Precondicionado para Ingeniería de Sistemas.">
+  <title>Finanzas GCP | Ingeniería de Sistemas</title>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio"><span class="brand-mark">Σ</span><span>Finanzas<span class="brand-light">GCP</span></span></a>
+    <nav aria-label="Navegación principal">
+      <a href="#caso">Caso</a><a href="#modelo">Modelo</a><a href="#simulador">Simulador</a><a href="#resultados">Resultados</a><a href="#qa">QA</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">MÉTODOS NUMÉRICOS · UMSA</span>
+        <h1>Planificación financiera y <em>distribución de recursos</em></h1>
+        <p class="hero-lead">Aplicación del método de Gradientes Conjugados Precondicionado para apoyar la asignación presupuestaria entre unidades de una organización tecnológica.</p>
+        <div class="hero-actions"><a class="btn primary" href="#simulador">Abrir simulador</a><a class="btn secondary" href="#modelo">Explorar el modelo</a></div>
+        <div class="student-meta">
+          <div><small>ESTUDIANTE</small><strong>Marca Vargas Ariel Rodrigo</strong></div>
+          <div><small>MENCIÓN</small><strong>Ingeniería de Sistemas</strong></div>
+          <div><small>ASIGNATURA</small><strong>Métodos Numéricos</strong></div>
+          <div><small>DOCENTE</small><strong>Lic. Brigida Carvajal Blanco</strong></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-top"><span class="live-dot"></span> MODELO LINEAL · n = 4 <span class="visual-tag">SPD</span></div>
+        <div class="formula">Ax = b</div>
+        <div class="matrix-preview">
+          <span>10.0</span><span>2.0</span><span>1.0</span><span>0.5</span>
+          <span>2.0</span><span>9.0</span><span>1.5</span><span>0.5</span>
+          <span>1.0</span><span>1.5</span><span>8.0</span><span>1.0</span>
+          <span>0.5</span><span>0.5</span><span>1.0</span><span>7.0</span>
+        </div>
+        <div class="visual-foot"><span>Simetría verificada</span><span>Definida positiva</span></div>
+      </div>
+    </section>
+
+    <section id="caso" class="section">
+      <div class="section-heading"><span class="eyebrow">01 / CONTEXTO</span><h2>Caso de estudio</h2><p>Una organización tecnológica necesita distribuir recursos financieros entre cuatro unidades interdependientes, considerando prioridades, costos compartidos y restricciones operativas.</p></div>
+      <div class="unit-grid">
+        <article class="unit-card"><span class="unit-index">01</span><div class="unit-icon">⌘</div><h3>Desarrollo de software</h3><p>Personal técnico, licencias y evolución de aplicaciones.</p></article>
+        <article class="unit-card"><span class="unit-index">02</span><div class="unit-icon">▤</div><h3>Infraestructura TI</h3><p>Servidores, nube, redes y renovación de equipos.</p></article>
+        <article class="unit-card"><span class="unit-index">03</span><div class="unit-icon">◇</div><h3>Seguridad informática</h3><p>Protección de datos, auditorías y continuidad operativa.</p></article>
+        <article class="unit-card"><span class="unit-index">04</span><div class="unit-icon">◎</div><h3>Soporte y mantenimiento</h3><p>Atención de incidencias, mantenimiento y asistencia.</p></article>
+      </div>
+      <div class="notice"><strong>Procedencia de los datos:</strong> los valores numéricos son datos sintéticos, construidos con fines académicos y demostrativos; no representan registros contables reales de una empresa. Las escalas y perturbaciones se justifican como escenarios hipotéticos de planificación.</div>
+    </section>
+
+    <section id="modelo" class="section soft-section">
+      <div class="section-heading"><span class="eyebrow">02 / FORMULACIÓN</span><h2>Modelo matemático</h2><p>Se representa la asignación mediante un sistema lineal simétrico y definido positivo de cuatro ecuaciones y cuatro incógnitas.</p></div>
+      <div class="model-layout">
+        <div class="model-explain">
+          <h3>Variables de decisión</h3>
+          <ul class="variable-list">
+            <li><b>x₁</b><span>Recursos para desarrollo de software (miles de Bs).</span></li>
+            <li><b>x₂</b><span>Recursos para infraestructura TI (miles de Bs).</span></li>
+            <li><b>x₃</b><span>Recursos para seguridad informática (miles de Bs).</span></li>
+            <li><b>x₄</b><span>Recursos para soporte y mantenimiento (miles de Bs).</span></li>
+          </ul>
+          <h3>Interpretación de los coeficientes</h3>
+          <p>Los elementos diagonales <i>aᵢᵢ</i> representan la ponderación de la necesidad y capacidad de absorción de recursos de cada unidad. Los elementos fuera de la diagonal <i>aᵢⱼ</i> representan interdependencias y costos compartidos entre las unidades i y j. La simetría expresa una relación de influencia recíproca dentro del modelo.</p>
+          <p>El vector <i>b</i> representa las metas financieras ponderadas que deben satisfacerse. Por tratarse de un modelo académico, los coeficientes son parámetros sintéticos y no montos contables directos.</p>
+        </div>
+        <div class="equation-card"><span class="card-kicker">SISTEMA GENERAL</span><div class="big-equation">A · x = b</div><div class="equation-note">A ∈ ℝ⁴ˣ⁴ · A = Aᵀ · xᵀAx &gt; 0 para x ≠ 0</div><div class="property-row"><span>Simétrica</span><span>Definida positiva</span><span>n = 4</span></div></div>
+      </div>
+    </section>
+
+    <section id="simulador" class="section">
+      <div class="section-heading"><span class="eyebrow">03 / LABORATORIO INTERACTIVO</span><h2>Simulador numérico</h2><p>Selecciona un escenario, modifica los datos y ejecuta los métodos. Los resultados se recalculan con los parámetros actuales.</p></div>
+      <div class="scenario-row">
+        <button class="scenario-btn active" data-scenario="ideal"><span>01</span><b>Ideal</b><small>Estabilidad financiera</small></button>
+        <button class="scenario-btn" data-scenario="stress"><span>02</span><b>Bajo estrés</b><small>Presión de costos</small></button>
+        <button class="scenario-btn" data-scenario="ill"><span>03</span><b>Mal condicionado</b><small>Escalas desiguales</small></button>
+      </div>
+      <div class="scenario-description" id="scenarioDescription"></div>
+      <div class="editor-grid">
+        <div class="panel">
+          <div class="panel-heading"><div><span class="card-kicker">MATRIZ DE COEFICIENTES</span><h3>Matriz A</h3></div><span class="mini-pill">4 × 4</span></div>
+          <div id="matrixEditor" class="matrix-editor"></div>
+          <div class="panel-heading vector-heading"><div><span class="card-kicker">TÉRMINOS INDEPENDIENTES</span><h3>Vector b</h3></div></div>
+          <div id="vectorEditor" class="vector-editor"></div>
+          <div class="controls">
+            <label>Vector inicial x₀<select id="initialVector"><option value="zero">Vector cero</option><option value="ones">Vector de unos</option></select></label>
+            <label>Tolerancia<input id="tolerance" type="number" min="0.000000001" max="0.1" step="any" value="0.000001"></label>
+            <label>Precondicionador<select id="preconditioner"><option value="jacobi">Jacobi (diagonal)</option><option value="none">Sin precondicionador</option></select></label>
+            <label>Iteraciones máximas<input id="maxIterations" type="number" min="1" max="1000" value="100"></label>
+          </div>
+          <div class="button-row"><button class="btn primary" id="runButton">Ejecutar cálculo</button><button class="btn secondary" id="resetButton">Restablecer escenario</button></div>
+          <p class="validation-message" id="validationMessage" role="status"></p>
+        </div>
+        <div class="panel results-panel">
+          <div class="panel-heading"><div><span class="card-kicker">DIAGNÓSTICO DEL SISTEMA</span><h3>Estado matemático</h3></div><span id="spdBadge" class="status-pill">Pendiente</span></div>
+          <div class="metric-grid">
+            <div class="metric"><small>Simetría</small><strong id="symmetryMetric">—</strong></div>
+            <div class="metric"><small>Definida positiva</small><strong id="spdMetric">—</strong></div>
+            <div class="metric"><small>κ(A)</small><strong id="conditionMetric">—</strong></div>
+            <div class="metric"><small>κ precond.</small><strong id="preConditionMetric">—</strong></div>
+          </div>
+          <div class="chart-title">Convergencia del residuo relativo</div>
+          <canvas id="convergenceChart" width="640" height="260" aria-label="Gráfico de convergencia"></canvas>
+          <div class="legend"><span><i class="legend-gc"></i> GC simple</span><span><i class="legend-gcp"></i> GCP</span></div>
+          <p class="chart-caption">El gráfico muestra ||rₖ||₂ / ||b||₂ en cada iteración. La escala vertical es logarítmica.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultados" class="section soft-section">
+      <div class="section-heading"><span class="eyebrow">04 / RESULTADOS</span><h2>Comparación de métodos</h2><p>La solución directa por Cholesky se utiliza como referencia. GC y GCP se comparan con la misma tolerancia y vector inicial.</p></div>
+      <div class="table-wrap"><table><thead><tr><th>Indicador</th><th>GC simple</th><th>GCP</th><th>Referencia</th></tr></thead><tbody id="summaryTable"><tr><td colspan="4">Ejecuta un escenario para visualizar los resultados.</td></tr></tbody></table></div>
+      <div class="results-detail">
+        <div class="panel"><div class="panel-heading"><div><span class="card-kicker">SOLUCIÓN NUMÉRICA</span><h3>Asignación estimada</h3></div></div><div class="table-wrap"><table><thead><tr><th>Unidad</th><th>Referencia (miles Bs)</th><th>GCP (miles Bs)</th></tr></thead><tbody id="solutionTable"><tr><td colspan="3">Sin resultados</td></tr></tbody></table></div></div>
+        <div class="panel"><div class="panel-heading"><div><span class="card-kicker">ANÁLISIS POR COMPONENTE</span><h3>Errores de GCP</h3></div></div><div class="table-wrap"><table><thead><tr><th>Variable</th><th>Error abs.</th><th>Error rel.</th><th>Error %</th></tr></thead><tbody id="errorTable"><tr><td colspan="4">Sin resultados</td></tr></tbody></table></div></div>
+      </div>
+      <div class="interpretation" id="interpretation"><b>Interpretación financiera:</b> los resultados aparecerán después de ejecutar el simulador.</div>
+    </section>
+
+    <section id="qa" class="section">
+      <div class="section-heading"><span class="eyebrow">05 / ASEGURAMIENTO DE CALIDAD</span><h2>Módulo de pruebas QA</h2><p>Casos de prueba funcionales para verificar la carga de escenarios, validaciones, edición dinámica y efecto del precondicionamiento.</p></div>
+      <div class="qa-toolbar"><span id="qaStatus">Pruebas pendientes de ejecución</span><button class="btn primary" id="runQa">Ejecutar pruebas QA</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Prueba</th><th>Entrada</th><th>Resultado esperado</th><th>Resultado obtenido</th><th>Conclusión</th></tr></thead><tbody id="qaTable"><tr><td colspan="5">Presiona “Ejecutar pruebas QA”.</td></tr></tbody></table></div>
+    </section>
+
+    <section id="conclusiones" class="section conclusion-section">
+      <div class="section-heading"><span class="eyebrow">06 / CIERRE</span><h2>Conclusiones y referencias</h2></div>
+      <div class="conclusion-grid"><div><h3>Conclusiones técnicas</h3><ul><li>El método de Gradientes Conjugados es apropiado para sistemas simétricos y definidos positivos.</li><li>El precondicionador de Jacobi puede reducir el efecto de escalas diagonales desiguales y mejorar la convergencia.</li><li>La calidad de la solución se evalúa mediante el residuo relativo y los errores respecto a la solución directa.</li><li>La comparación de iteraciones permite observar el impacto del precondicionamiento, sin asumir que siempre será más rápido.</li></ul></div><div><h3>Interpretación organizacional</h3><p>La solución representa una distribución ponderada de recursos entre unidades que comparten dependencias operativas. En una aplicación real, los coeficientes deberían estimarse a partir de presupuestos históricos, costos, prioridades y reglas institucionales, y el resultado tendría que contrastarse con restricciones presupuestarias reales.</p></div></div>
+      <div class="references"><h3>Referencias bibliográficas</h3><ol><li>Suñagua S., P. (2020). <i>Método de Gradientes Conjugados Precondicionado</i>. Revista Boliviana de Matemática – UMSA, 04, 2–7.</li><li>Golub, G. H., &amp; Van Loan, C. F. (2013). <i>Matrix Computations</i> (4th ed.). Johns Hopkins University Press.</li><li>Saad, Y. (2003). <i>Iterative Methods for Sparse Linear Systems</i> (2nd ed.). SIAM.</li></ol></div>
+    </section>
+  </main>
+  <footer><span>FinanzasGCP · Proyecto académico de Métodos Numéricos</span><span>Ingeniería de Sistemas · UMSA</span></footer>
+  <script src="./src/math.js"></script>
+  <script src="./src/app.js"></script>
+</body>
+</html>
